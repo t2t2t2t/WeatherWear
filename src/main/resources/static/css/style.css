@@ -1,0 +1,342 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f7fa;
+    color: #2d3748;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Темная тема */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #e2e8f0;
+}
+
+/* Контейнер */
+.container {
+    max-width: 900px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+}
+
+body.dark-theme .container {
+    background-color: rgba(30, 30, 30, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+body.dark-theme .container h1 {
+    color: #e2e8f0;
+}
+
+/* Форма */
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 14px;
+    border: 1px solid #cbd5e0;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: white;
+    color: #2d3748;
+}
+
+body.dark-theme input[type="text"] {
+    background-color: #2d2d2d;
+    border-color: #4a5568;
+    color: #e2e8f0;
+}
+
+input[type="text"]:focus {
+    border-color: #4299e1;
+}
+
+button {
+    padding: 14px 20px;
+    background-color: #4299e1;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3182ce;
+}
+
+#getLocationBtn {
+    background-color: #48bb78;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+#getLocationBtn:hover {
+    background-color: #38a169;
+}
+
+/* Блок с погодой и советами */
+.weather-result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .weather-result {
+    background-color: rgba(30, 30, 30, 0.7);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.weather-result h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2b6cb0;
+    text-align: center;
+}
+
+body.dark-theme .weather-result h2 {
+    color: #63b3ed;
+}
+
+/* Макет: погода слева, советы справа */
+.weather-advice-layout {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.weather-details,
+.advice-block {
+    flex: 1;
+    min-width: 300px;
+}
+
+.weather-details {
+    background-color: rgba(240, 249, 255, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #ebf8ff;
+}
+
+body.dark-theme .weather-details {
+    background-color: rgba(20, 40, 80, 0.2);
+    border-color: #2c5282;
+}
+
+.weather-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-size: 16px;
+    color: #2d3748;
+}
+
+body.dark-theme .weather-item span:first-child,
+body.dark-theme .weather-item span:last-child {
+    color: #e2e8f0;
+}
+
+.weather-icon {
+    color: #4299e1;
+    margin-right: 6px;
+}
+
+.uv-item .uv-value {
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 8px;
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+body.dark-theme .uv-value {
+    background-color: #856404;
+    color: #fff3cd;
+}
+
+/* Блок советов */
+.advice-block {
+    background-color: rgba(236, 253, 245, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #c6f6d5;
+}
+
+body.dark-theme .advice-block {
+    background-color: rgba(20, 60, 40, 0.2);
+    border-color: #2f855a;
+}
+
+.advice-block h3 {
+    margin-bottom: 16px;
+    color: #276749;
+    font-size: 18px;
+}
+
+body.dark-theme .advice-block h3 {
+    color: #38a169;
+}
+
+.advice-item {
+    margin-bottom: 12px;
+    padding: 8px 12px;
+    background-color: white;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #2d3748;
+    border-left: 4px solid #48bb78;
+}
+
+body.dark-theme .advice-item {
+    background-color: #2d2d2d;
+    color: #e2e8f0;
+}
+
+/* Ошибка */
+.error-message {
+    margin-top: 20px;
+    padding: 16px;
+    background-color: #fed7d7;
+    color: #9b2c2c;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #feb2b2;
+}
+
+body.dark-theme .error-message {
+    background-color: #9b2c2c;
+    color: #fff5f5;
+    border-color: #c53030;
+}
+
+/* Переключатель темы */
+.theme-switch-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.theme-label {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+body.dark-theme .theme-label {
+    transform: rotate(180deg);
+}
+
+/* Стили переключателя */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4299e1;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .weather-advice-layout {
+        flex-direction: column;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+        justify-content: center;
+    }
+}

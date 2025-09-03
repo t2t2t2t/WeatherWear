@@ -1,0 +1,128 @@
+[
+  {
+    "condition": {
+      "field": "uv",
+      "operator": ">=",
+      "value": 6
+    },
+    "advice": " <b>Наденьте солнечные очки</b> — UV высокий.  <b>Используйте SPF 50+</b>."
+  },
+  {
+    "condition": {
+      "field": "uv",
+      "operator": "=",
+      "value": 3
+    },
+    "advice": " <b>Используйте SPF 30+</b> — солнце активно."
+  },
+  {
+    "condition": {
+      "field": "uv",
+      "operator": "<",
+      "value": 3
+    },
+    "advice": " UV-индекс низкий — крем не обязателен, но SPF 15 можно для лица."
+  },
+
+  {
+    "condition": {
+      "field": "pressure",
+      "operator": "<",
+      "value": 990
+    },
+    "advice": "⚠ <b>Низкое атмосферное давление</b> — возможна головная боль или усталость. Будьте осторожны."
+  },
+  {
+    "condition": {
+      "field": "pressure",
+      "operator": ">",
+      "value": 1030
+    },
+    "advice": "⚠ <b>Высокое давление</b> — риск для гипертоников. Избегайте нагрузок."
+  },
+  {
+    "condition": {
+      "field": "pressure",
+      "operator": "between",
+      "value": [990, 1030]
+    },
+    "advice": " Давление в норме — комфортное самочувствие."
+  },
+
+  {
+    "condition": {
+      "field": "temperature",
+      "operator": "<",
+      "value": 10
+    },
+    "advice": " <b>Наденьте шарф</b> — риск простуды шеи."
+  },
+  {
+    "condition": {
+      "field": "temperature",
+      "operator": "<",
+      "value": 0
+    },
+    "advice": " <b>Шарф обязателен</b>.  <b>Закройте уши</b> — риск обморожения."
+  },
+
+  {
+    "condition": {
+      "field": "windSpeed",
+      "operator": ">",
+      "value": 7
+    },
+    "advice": " <b>Сильный ветер</b> — прикройте лицо шарфом или маской."
+  },
+  {
+    "condition": {
+      "field": "windSpeed",
+      "operator": ">",
+      "value": 4
+    },
+    "advice": " Ветер ощутим — закройте шею."
+  },
+
+  {
+    "condition": {
+      "field": "weatherDescription",
+      "operator": "contains",
+      "value": "дождь"
+    },
+    "advice": " Возьмите <b>зонтик или дождевик</b>."
+  },
+  {
+    "condition": {
+      "field": "weatherDescription",
+      "operator": "contains",
+      "value": "ливень"
+    },
+    "advice": " Ливень — лучше отложите выход или возьмите дождевик."
+  },
+  {
+    "condition": {
+      "field": "weatherDescription",
+      "operator": "contains",
+      "value": "снег"
+    },
+    "advice": " Возьмите <b>зонт от снега</b> или капюшон."
+  },
+
+  {
+    "condition": {
+      "field": "humidity",
+      "operator": ">",
+      "value": 80
+    },
+    "advice": " <b>Высокая влажность</b> — тело хуже охлаждается. Возможны дискомфорт, потливость и утомляемость. Следите за дыханием, особенно при нагрузке."
+  },
+
+  {
+    "condition": {
+      "field": "humidity",
+      "operator": "<",
+      "value": 30
+    },
+    "advice": " <b>Очень сухой воздух</b> — могут сохнуть слизистые носа и глаз. Используйте увлажняющий бальзам для носа, капли или увлажнитель. Пейте воду — это помогает изнутри."
+  }
+]

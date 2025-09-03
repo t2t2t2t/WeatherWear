@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погодный помощник</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/main.js}"></script>
+</head>
+<body class="light-theme">
+<!-- Переключатель темы -->
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox">
+        <div class="slider round"></div>
+    </label>
+    <span class="theme-label">☀</span>
+</div>
+
+<div class="container">
+    <h1>🌤 Погодный помощник</h1>
+
+    <form method="post" action="/weather">
+        <input type="text" name="city" placeholder="Введите город..." required
+               th:value="${city != null} ? ${city} : ''">
+        <button type="submit">
+            <i class="fas fa-search"></i> Узнать погоду
+        </button>
+    </form>
+
+    <button type="button" id="getLocationBtn">
+        <i class="fas fa-location-arrow"></i> Мое местоположение
+    </button>
+
+    <!-- Блок с результатом -->
+    <div th:if="${weather != null}" class="weather-result">
+        <h2>Погода в <span th:text="${weather.city}">Городе</span></h2>
+
+        <div class="weather-advice-layout">
+            <!-- Левый блок: погода -->
+            <div class="weather-details">
+                <div class="weather-item">
+                    <span><i class="fas fa-thermometer-half weather-icon"></i> Температура</span>
+                    <span th:text="${weather.temperature} + ' °C'">0°C</span>
+                </div>
+                <div class="weather-item">
+                    <span><i class="fas fa-temperature-low weather-icon"></i> Ощущается</span>
+                    <span th:text="${weather.feelsLike} + ' °C'">0°C</span>
+                </div>
+                <div class="weather-item">
+                    <span><i class="fas fa-tint weather-icon"></i> Влажность</span>
+                    <span th:text="${weather.humidity} + '%'">0%</span>
+                </div>
+                <div class="weather-item">
+                    <span><i class="fas fa-meteor"></i> Погода</span>
+                    <span th:text="${weather.weatherDescription}">Описание</span>
+                </div>
+                <div class="weather-item">
+                    <span><i class="fas fa-cloud weather-icon"></i> Давление</span>
+                    <span th:text="${weather.pressure} + ' Па'">0 Па</span>
+                </div>
+                <div class="weather-item">
+                    <span><i class="fas fa-wind weather-icon"></i> Ветер</span>
+                    <span th:text="${weather.windSpeed} + ' м/с'">0 м/с</span>
+                </div>
+                <div class="weather-item uv-item">
+                    <span><i class="fas fa-sun weather-icon"></i> UV индекс</span>
+                    <span class="uv-value" th:text="${weather.uv}">0</span>
+                </div>
+            </div>
+
+            <!-- Правый блок: советы -->
+            <div th:if="${!#lists.isEmpty(adviceList)}" class="advice-block">
+                <h3>🎯 Что взять с собой?</h3>
+                <div th:each="item : ${adviceList}" th:utext="${item}" class="advice-item"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ошибка -->
+    <div th:if="${error}" class="error-message" th:text="${error}">Ошибка загрузки</div>
+</div>
+</body>
+</html>
